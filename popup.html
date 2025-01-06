@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeetCode Stats</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>
+      LeetCode Stats
+      <button id="addUser">+</button>
+    </h1>
+    <table id="statsTable">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Total Solved</th>
+          <th>Easy</th>
+          <th>Medium</th>
+          <th>Hard</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>example_user</td>
+          <td class="stats">245</td>
+          <td class="stats easy">120</td>
+          <td class="stats medium">95</td>
+          <td class="stats hard">30</td>
+          <td><button class="action-btn">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

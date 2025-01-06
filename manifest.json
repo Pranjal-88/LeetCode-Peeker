@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "LeetCode Stats Viewer",
+    "version": "1.0",
+    "description": "Displays LeetCode stats for a given username.",
+    "permissions": ["activeTab", "scripting"],
+    "host_permissions": ["https://leetcode.com/*"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "16.png",
+        "48": "48.png",
+        "128": "128.png"
+      }
+    }
+  }
+  
