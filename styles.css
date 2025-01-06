@@ -98,3 +98,22 @@ body {
   .action-btn:hover {
     background-color: #4a4a4a;
   }
+
+  #refreshStats {
+    background-color: #ffa116;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.2s;
+  }
+  
+  #refreshStats:hover {
+    transform: scale(1.1);
+    background-color: #ff9100;
+  }
+  

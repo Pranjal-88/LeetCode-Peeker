@@ -32,6 +32,37 @@ async function renderTable() {
   });
 }
 
+async function refreshStats() {
+  const users = getUsers();
+  const updatedUsers = [];
+
+  for (const user of users) {
+    try {
+      const response = await fetch(`https://leetcode-stats-api.herokuapp.com/${user.username}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch stats for ${user.username}`);
+      }
+      const data = await response.json();
+      updatedUsers.push({
+        username: user.username,
+        totalSolved: data.totalSolved,
+        easySolved: data.easySolved,
+        mediumSolved: data.mediumSolved,
+        hardSolved: data.hardSolved,
+      });
+    } catch (error) {
+      alert(`Error updating stats for ${user.username}: ${error.message}`);
+      updatedUsers.push(user); // Keep the old data if update fails
+    }
+  }
+
+  saveUsers(updatedUsers);
+  renderTable();
+}
+
+document.getElementById("refreshStats").addEventListener("click", refreshStats);
+
+
 async function addUser() {
   const username = prompt("Enter LeetCode username:");
   if (!username) return;
