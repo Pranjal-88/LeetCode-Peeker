@@ -18,7 +18,7 @@ A simple and intuitive Chrome extension to track LeetCode stats for up to 5 user
 ### From Source:
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/leetcode-stats-extension.git
+   git clone https://github.com/pranjal-88/leetcode-stats-extension.git
    ```
 2. Open Chrome and navigate to `chrome://extensions/`.
 3. Enable **Developer Mode** in the top-right corner. 🔓
