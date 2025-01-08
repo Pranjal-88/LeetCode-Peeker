@@ -9,6 +9,24 @@ function saveUsers(users) {
   localStorage.setItem(usersKey, JSON.stringify(users));
 }
 
+function showNotification(message) {
+  const notification = document.createElement("div");
+  notification.id = "notification";
+  notification.textContent = message;
+  document.body.appendChild(notification);
+
+  // Trigger fade-out effect
+  setTimeout(() => {
+    notification.classList.add("fade-out");
+  }, 1000); // Wait for 1 second before fading out
+
+  // Remove the element after the fade-out animation
+  setTimeout(() => {
+    notification.remove();
+  }, 2000); // Total duration: 1s fade-in + 1s fade-out
+}
+
+
 async function renderTable() {
   const users = getUsers();
   const tableBody = document.querySelector("#statsTable tbody");
@@ -17,7 +35,9 @@ async function renderTable() {
   for (const user of users) {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td>${user.username}</td>
+      <td>
+        <a href="https://leetcode.com/${user.username}/" target="_blank">${user.username}</a>
+      </td>
       <td class="stats">${user.totalSolved || "N/A"}</td>
       <td class="stats easy">${user.easySolved || "N/A"}</td>
       <td class="stats medium">${user.mediumSolved || "N/A"}</td>
@@ -58,10 +78,10 @@ async function refreshStats() {
 
   saveUsers(updatedUsers);
   renderTable();
+  showNotification("Data has been refreshed successfully!");
 }
 
 document.getElementById("refreshStats").addEventListener("click", refreshStats);
-
 
 async function addUser() {
   const username = prompt("Enter LeetCode username:");
